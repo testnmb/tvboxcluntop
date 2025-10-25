@@ -224,8 +224,8 @@ def generate_outputs(channels, template_channels, unmatched_template_channels, u
                     # 为每个频道生成输出 - 每个频道单独计算线路数
                     total = len(unique_channels)
                     for idx, (chan_name, chan_url) in enumerate(unique_channels, 1):
-                        # 使用获取的频道名称，如果没有则使用模板名称
-                        display_name = chan_name if chan_name and chan_name != "未知频道" else primary_name
+                        # 使用模板中的主名称作为显示名称，而不是源中的名称
+                        display_name = primary_name
                         
                         base_url = chan_url.split("$")[0]
                         suffix = "$LR•" + ("IPV6" if is_ipv6(chan_url) else "IPV4")
